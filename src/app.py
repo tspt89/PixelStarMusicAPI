@@ -68,7 +68,7 @@ def login():
 	content = request.get_json()
 	tmp = r.hgetall(content['email'])
 	print("LOGIN",tmp)
-	if content['email'].encode("utf-8") == tmp['email'] and content['password'] == tmp['password']:
+	if content['email'] == tmp['email'] and content['password'] == tmp['password']:
 		return jsonify(True)
 	else:
 		return jsonify(False)
